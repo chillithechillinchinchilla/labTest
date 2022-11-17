@@ -1,12 +1,12 @@
-import logo from "./logo.svg";
 import "./App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import DarkNavbar from "./components/Navbar";
 
 function App() {
   return (
     <div>
-      <Header />
+      <DarkNavbar />
       <Footer />
     </div>
   );
