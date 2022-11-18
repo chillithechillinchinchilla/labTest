@@ -1,5 +1,7 @@
 import React from "react";
-
+{
+  /* eslint-disable*/
+}
 function DarkNavbar() {
   return (
     <nav class="navbar navbar-dark navbar-expand-lg bg-dark">
