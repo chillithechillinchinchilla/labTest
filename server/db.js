@@ -6,6 +6,13 @@
 //"seed": "npm run create-db && Node index.js",
 // npm run create-db, npm run seed
 
+//config .env file contains since these values arent important right now
+//PGUSER=postgres
+// PGHOST=localhost
+// PGPASSWORD=prlab2011
+// PGDATABASE=customers 
+// PGPORT=5432
+
 // Create a pool instance and pass in the config file that contains env vars
 // We export  two functions, a query which will run an insert statement
 
@@ -28,6 +35,20 @@ module.exports = {
     return pool.connect(err, client, done);
   },
 };
+
+// //Below is if you want a standard connection with env variables in file.
+//         const Pool = require("pg").Pool;
+
+//         const pool = new Pool({
+//           user: "postgres",
+//           password: "prlab2011",
+//           host: "localhost",
+//           port: 5432,
+//           database: "customers",
+//         });
+
+//         module.exports = pool;
+
 
 console.log("db ran");
 
