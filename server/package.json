@@ -4,13 +4,18 @@
   "description": "Basic server for Lab Test DB",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "create-db": "psql -U postgres < schema.sql",
+    "seed": "npm run create-db && Node index.js",
+    "dev": "node index"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "node-postgres": "^0.6.2",
     "pf": "^0.0.1",
     "pg": "^8.8.0"
   },

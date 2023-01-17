@@ -37,9 +37,6 @@ function ListCustomers() {
               <td>{customer.last_name}</td>
               <td>{customer.email}</td>
 
-              {/* <td>
-                <Editcustomer customer={customer} />
-              </td> */}
               <td>
                 <button
                   className="btn btn-danger"

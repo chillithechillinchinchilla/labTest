@@ -1,14 +1,55 @@
-// This files sets contains information for the db location and env variables.
-// Setting this up in pgadmin may be helpful.
+// We will create a config file to import env vars. https://dev.to/studio_hungry/how-to-seed-a-postgres-database-with-node-384i
+// The intention is to allow for a blank customers db to be built automatically with seeded data for development. 
+// If data is stored in a CSV file, you could use the 'faker library' package to import. 
+// Don't forget to add two scripts to package.json in order to run the seeds. 'create-db' and 'seed' npm run create-db, npm run seed
 
-const Pool = require("pg").Pool;
+// Create a pool instance and pass in the config file that contains env vars
+// We export  two functions, a query which will run an insert statement
 
-const pool = new Pool({
-  user: "postgres",
-  password: "password",
-  host: "localhost",
-  port: 5432,
-  database: "customers",
+const { Pool } = require('pg');
+const { host, user, database, password, port } = require ('./config');
+
+const pool = new Pool ({
+  host,
+  user,
+  database,
+  password,
+  port,
 });
 
-module.exports = pool;
+module.exports = {
+  query: (text, params, callback) => {
+    return pool.query(text, params, callback);
+  },
+  connect: (err, client, done) => {
+    return pool.connect(err, client, done);
+  },
+};
+
+console.log("db ran");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Below is if you want a standard connection with env variables in file.
+        // const Pool = require("pg").Pool;
+
+        // const pool = new Pool({
+        //   user: "postgres",
+        //   password: "password",
+        //   host: "localhost",
+        //   port: 5432,
+        //   database: "customers",
+        // });
+
+        // module.exports = pool;
