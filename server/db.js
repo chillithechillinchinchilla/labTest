@@ -1,7 +1,10 @@
 // We will create a config file to import env vars. https://dev.to/studio_hungry/how-to-seed-a-postgres-database-with-node-384i
 // The intention is to allow for a blank customers db to be built automatically with seeded data for development. 
 // If data is stored in a CSV file, you could use the 'faker library' package to import. 
-// Don't forget to add two scripts to package.json in order to run the seeds. 'create-db' and 'seed' npm run create-db, npm run seed
+// Don't forget to add two scripts to package.json in order to run the seeds. 'create-db' and 'seed' 
+//"create-db": "psql -U postgres < schema.sql",
+//"seed": "npm run create-db && Node index.js",
+// npm run create-db, npm run seed
 
 // Create a pool instance and pass in the config file that contains env vars
 // We export  two functions, a query which will run an insert statement
