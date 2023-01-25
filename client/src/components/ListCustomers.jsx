@@ -14,6 +14,18 @@ function ListCustomers() {
     }
   };
 
+  const deleteCustomer = async (id) => {
+    try {
+      //create response and id to send to DB in order to delete.
+      const deleteCustomer = await fetch(
+        `http://localhost:5000/customers/${id}`,
+        { method: "DELETE" }
+      );
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
   useEffect(() => {
     getCustomers();
   }, []);
@@ -40,7 +52,7 @@ function ListCustomers() {
               <td>
                 <button
                   className="btn btn-danger"
-                  //   onClick={() => deletecustomer(customer.customer_id)}
+                  onClick={() => deleteCustomer(customer.id)}
                 >
                   Delete
                 </button>

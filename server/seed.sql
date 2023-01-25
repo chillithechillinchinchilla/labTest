@@ -1,3 +1,6 @@
+--This is not used in the seeding script. 
+--SQL commands placed here for reference.
+
 INSERT into customers(first_name, last_name, email) 
 VALUES ('John', 'Smith', 'jsmith@email.com'),
 ('Bob', 'Robertson', 'bobistheman@bob.com');

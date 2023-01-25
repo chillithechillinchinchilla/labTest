@@ -32,7 +32,7 @@ purchase_qty integer
 
 
 
---seed stuff??
+--seed the DB
 
 INSERT into customers(first_name, last_name, email) 
 VALUES ('John', 'Smith', 'jsmith@email.com'),
