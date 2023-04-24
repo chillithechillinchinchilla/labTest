@@ -2,12 +2,13 @@ import React from "react";
 import ListCustomers from "../components/ListCustomers";
 import DarkNavbar from "../components/Navbar";
 
-const Home = () => {
+const Root = () => {
   return (
     <div>
-        <ListCustomers />
+      {/* <DarkNavbar /> */}
+      {/* <ListCustomers /> */}
     </div>
   );
 };
 
-export default Home;
+export default Root;

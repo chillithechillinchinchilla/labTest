@@ -26,6 +26,20 @@ function ListCustomers() {
     }
   };
 
+
+  //This may be incorrect. 
+  const editCustomer = async (id) => {
+    try {
+      //create response and id to send to DB in order to edit.
+      const editCustomer = await fetch(
+        "http://localhost:5000/customers/${id}",
+        { method: "PUT" }
+      );
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
   useEffect(() => {
     getCustomers();
   }, []);
@@ -39,6 +53,7 @@ function ListCustomers() {
             <th>First Name</th>
             <th>Last Name</th>
             <th>Email</th>
+            <th>Edit</th>
             <th>Delete</th>
           </tr>
         </thead>
@@ -48,7 +63,14 @@ function ListCustomers() {
               <td>{customer.first_name}</td>
               <td>{customer.last_name}</td>
               <td>{customer.email}</td>
-
+              <td>
+                <button
+                  className="btn btn-warning"
+                  onClick={() => editCustomer(customer.id)}
+                >
+                  Edit
+                </button>
+              </td>
               <td>
                 <button
                   className="btn btn-danger"
@@ -62,21 +84,6 @@ function ListCustomers() {
         </tbody>
       </table>
     </Fragment>
-
-    // <Fragment>
-    //   <button className="btn btn-danger">Delete</button>
-    //   <p>
-    //     {customers.map((customer) => (
-    //       <tr key={customer.customer_id}>
-    //         <td>{customer.first_name}</td>
-    //         <td>{customer.last_name}</td>
-    //         <td>
-    //           <button className="btn btn-danger">Delete</button>
-    //         </td>
-    //       </tr>
-    //     ))}
-    //   </p>
-    // </Fragment>
   );
 }
 

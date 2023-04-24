@@ -1,36 +1,69 @@
 import "./App.css";
-import Header from "./components/Header";
 import Footer from "./components/Footer";
 import DarkNavbar from "./components/Navbar";
 import ListCustomers from "./components/ListCustomers";
+import ErrorPage from "./pages/error-page";
 import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Root from "./pages/Root";
+import Single from "./pages/Single";
+import Write from "./pages/Write";
+import MyNavbar from "./components/MyNavbar";
 
-import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Outlet,
+  Route,
+} from "react-router-dom";
+// import Root, { loader as rootLoader, action as rootAction } from "./pages/Root";
+
+const Layout = () => {
+  return (
+    <>
+      <DarkNavbar />
+      <Outlet />
+      <Footer />
+    </>
+  );
+};
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: (
-      <div>
-        <Home />
-      </div>
-    ),
+    element: <Layout />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/post/:id",
+        element: <Single />,
+      },
+      {
+        path: "write",
+        element: <Write />,
+      },
+      {
+        path: "/test",
+        element: <div>This is test</div>,
+      },
+    ],
   },
   {
-    path: "/test",
-    element: <div>This is test</div>,
+    path: "/login",
+    element: <Login />,
   },
 ]);
 
 function App() {
   return (
-    <div>
-      {
+    <div className="app">
+      <div className="container">
         <RouterProvider router={router} />
-        /* <DarkNavbar />
-      <ListCustomers />
-      <Footer /> */
-      }
+      </div>
     </div>
   );
 }

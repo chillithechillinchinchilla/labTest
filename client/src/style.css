@@ -1,0 +1,38 @@
+.app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.authButton {
+  color: blue;
+}
+
+.auth {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: lightgray;
+  height: 80vh;
+}
+
+form {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  width: 400px;
+  gap: 10px;
+}
+
+.auth input {
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid gray;
+}
+
+.navbar.container {
+  padding: 10px 0px;
+  display: flex;
+}
