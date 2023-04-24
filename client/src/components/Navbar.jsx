@@ -4,24 +4,24 @@ import React from "react";
 }
 function DarkNavbar() {
   return (
-    <nav class="navbar navbar-dark navbar-expand-lg bg-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="/">
+    <nav className="navbar navbar-dark navbar-expand-lg bg-dark">
+      <div className="container-fluid">
+        <a className="navbar-brand" href="/">
           Product Reviews
         </a>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">
+        <div className="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <a className="nav-link active" aria-current="page" href="#">
                 Home
               </a>
             </li>
             {/* ----------------------- */}
             {/* Communications Section  */}
             {/* ----------------------- */}
-            <li class="nav-item dropdown">
+            <li className="nav-item dropdown">
               <a
-                class="nav-link dropdown-toggle"
+                className="nav-link dropdown-toggle"
                 href="#"
                 role="button"
                 data-bs-toggle="dropdown"
@@ -29,19 +29,19 @@ function DarkNavbar() {
               >
                 Communications
               </a>
-              <ul class="dropdown-menu">
+              <ul className="dropdown-menu">
                 <li>
-                  <a class="dropdown-item" href="#">
+                  <a className="dropdown-item" href="#">
                     Action
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#">
+                  <a className="dropdown-item" href="#">
                     Another action
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#">
+                  <a className="dropdown-item" href="#">
                     Something else here
                   </a>
                 </li>
@@ -50,9 +50,9 @@ function DarkNavbar() {
             {/* ----------------------- */}
             {/* Inventory Section  */}
             {/* ----------------------- */}
-            <li class="nav-item dropdown">
+            <li className="nav-item dropdown">
               <a
-                class="nav-link dropdown-toggle"
+                className="nav-link dropdown-toggle"
                 href="#"
                 role="button"
                 data-bs-toggle="dropdown"
@@ -60,19 +60,19 @@ function DarkNavbar() {
               >
                 Inventory
               </a>
-              <ul class="dropdown-menu">
+              <ul className="dropdown-menu">
                 <li>
-                  <a class="dropdown-item" href="#">
+                  <a className="dropdown-item" href="#">
                     Inventory Action
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#">
+                  <a className="dropdown-item" href="#">
                     Another Inventory action
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#">
+                  <a className="dropdown-item" href="#">
                     Something else here
                   </a>
                 </li>
@@ -82,9 +82,9 @@ function DarkNavbar() {
             {/* ----------------------- */}
             {/* Lab Section  */}
             {/* ----------------------- */}
-            <li class="nav-item dropdown">
+            <li className="nav-item dropdown">
               <a
-                class="nav-link dropdown-toggle"
+                className="nav-link dropdown-toggle"
                 href="#"
                 role="button"
                 data-bs-toggle="dropdown"
@@ -92,19 +92,19 @@ function DarkNavbar() {
               >
                 Lab
               </a>
-              <ul class="dropdown-menu">
+              <ul className="dropdown-menu">
                 <li>
-                  <a class="dropdown-item" href="#">
+                  <a className="dropdown-item" href="#">
                     Lab Action
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#">
+                  <a className="dropdown-item" href="#">
                     Another Lab action
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#">
+                  <a className="dropdown-item" href="#">
                     Something else here
                   </a>
                 </li>
@@ -114,9 +114,9 @@ function DarkNavbar() {
             {/* ----------------------- */}
             {/* Reviews / Awards Section  */}
             {/* ----------------------- */}
-            <li class="nav-item dropdown">
+            <li className="nav-item dropdown">
               <a
-                class="nav-link dropdown-toggle"
+                className="nav-link dropdown-toggle"
                 href="#"
                 role="button"
                 data-bs-toggle="dropdown"
@@ -124,19 +124,19 @@ function DarkNavbar() {
               >
                 Reviews/Awards
               </a>
-              <ul class="dropdown-menu">
+              <ul className="dropdown-menu">
                 <li>
-                  <a class="dropdown-item" href="#">
+                  <a className="dropdown-item" href="#">
                     Reviews Action
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#">
+                  <a className="dropdown-item" href="#">
                     Another Award action
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#">
+                  <a className="dropdown-item" href="#">
                     Something else here
                   </a>
                 </li>
@@ -146,9 +146,9 @@ function DarkNavbar() {
             {/* ----------------------- */}
             {/* Admin Section  */}
             {/* ----------------------- */}
-            <li class="nav-item dropdown">
+            <li className="nav-item dropdown">
               <a
-                class="nav-link dropdown-toggle"
+                className="nav-link dropdown-toggle"
                 href="#"
                 role="button"
                 data-bs-toggle="dropdown"
@@ -156,15 +156,15 @@ function DarkNavbar() {
               >
                 Admin
               </a>
-              <ul class="dropdown-menu">
+              <ul className="dropdown-menu">
                 <li>
-                  <a class="dropdown-item" href="#">
+                  <a className="dropdown-item" href="#">
                     Admin Action
                   </a>
                 </li>
 
                 <li>
-                  <a class="dropdown-item" href="#">
+                  <a className="dropdown-item" href="#">
                     Something else here
                   </a>
                 </li>
@@ -174,9 +174,9 @@ function DarkNavbar() {
             {/* ----------------------- */}
             {/* Prototype Section  */}
             {/* ----------------------- */}
-            <li class="nav-item dropdown">
+            <li className="nav-item dropdown">
               <a
-                class="nav-link dropdown-toggle"
+                className="nav-link dropdown-toggle"
                 href="#"
                 role="button"
                 data-bs-toggle="dropdown"
@@ -184,19 +184,19 @@ function DarkNavbar() {
               >
                 Prototype
               </a>
-              <ul class="dropdown-menu">
+              <ul className="dropdown-menu">
                 <li>
-                  <a class="dropdown-item" href="#">
+                  <a className="dropdown-item" href="#">
                     Prototype Action
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#">
+                  <a className="dropdown-item" href="#">
                     Another Inventory action
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#">
+                  <a className="dropdown-item" href="#">
                     Something else here
                   </a>
                 </li>

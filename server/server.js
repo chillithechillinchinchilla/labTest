@@ -62,19 +62,19 @@ app.delete("/customers/:id", async (req, res) => {
   }
 });
 
-// UPDATE or EDIT customer based on id. Used with Edit button.
-// This function has not been completed or tested 3/14/23
-app.put("/customers/:id", async (req, res) => {
-  console.log("Edit customer request made.");
-  try {
-    const { id } = req.params;
-    //NEED TO PARSE REQ.BODY into array in order for SQL statement to work
-    console.log("req.params looks like: " + req.params);
-    console.log("id  looks like this: " + id);
-    const editCustomer = await pool.query(
-      "UPDATE customers SET first_name = $1 last_name = $2 email = $3 WHERE id = $4"
-    );
-  } catch (error) {
-    console.error(error.message);
-  }
-});
+// // UPDATE or EDIT customer based on id. Used with Edit button.
+// // This function has not been completed or tested 3/14/23
+// app.put("/customers/:id", async (req, res) => {
+//   console.log("Edit customer request made.");
+//   try {
+//     const { id } = req.params;
+//     //NEED TO PARSE REQ.BODY into array in order for SQL statement to work
+//     console.log("req.params looks like: " + req.params);
+//     console.log("id  looks like this: " + id);
+//     const editCustomer = await pool.query(
+//       "UPDATE customers SET first_name = $1 last_name = $2 email = $3 WHERE id = $4"
+//     );
+//   } catch (error) {
+//     console.error(error.message);
+//   }
+// });

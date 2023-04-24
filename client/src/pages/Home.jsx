@@ -1,11 +1,13 @@
 import React from "react";
 import ListCustomers from "../components/ListCustomers";
-import DarkNavbar from "../components/Navbar";
+import AddCustomer from "../components/AddCustomer";
 
 const Home = () => {
   return (
     <div>
-        <ListCustomers />
+      {" "}
+      <ListCustomers />
+      <AddCustomer />
     </div>
   );
 };
