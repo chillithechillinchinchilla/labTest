@@ -19,7 +19,7 @@ function AddCustomer() {
         body: JSON.stringify(customer),
       });
       const data = await response.json();
-      console.log(data);
+      console.log("made it this far in adding");
       // Reset form if successful
       //setCustomer({ first_name: "", last_name: "", email: "" });
       window.location = "/";
@@ -79,75 +79,3 @@ function AddCustomer() {
 }
 
 export default AddCustomer;
-
-{
-  /* import React, { useState } from 'react';
-
-function CustomerForm() {
-  const [customer, setCustomer] = useState({
-    first_name: '',
-    last_name: '',
-    email: '',
-  });
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      const response = await fetch('/customers', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(customer),
-      });
-      const data = await response.json();
-      console.log(data);
-      // Reset the form after successful submission
-      setCustomer({ first_name: '', last_name: '', email: '' });
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setCustomer((prevState) => ({ ...prevState, [name]: value }));
-  };
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="first_name">First Name:</label>
-        <input
-          type="text"
-          id="first_name"
-          name="first_name"
-          value={customer.first_name}
-          onChange={handleChange}
-        />
-      </div>
-      <div>
-        <label htmlFor="last_name">Last Name:</label>
-        <input
-          type="text"
-          id="last_name"
-          name="last_name"
-          value={customer.last_name}
-          onChange={handleChange}
-        />
-      </div>
-      <div>
-        <label htmlFor="email">Email:</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          value={customer.email}
-          onChange={handleChange}
-        />
-      </div>
-      <button type="submit">Submit</button>
-    </form>
-  );
-}
-
-export default CustomerForm; */
-}

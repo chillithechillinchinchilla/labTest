@@ -8,7 +8,7 @@ import Login from "./pages/Login";
 import Root from "./pages/Root";
 import Single from "./pages/Single";
 import Write from "./pages/Write";
-import MyNavbar from "./components/MyNavbar";
+//import MyNavbar from "./components/MyNavbar";
 
 import {
   createBrowserRouter,

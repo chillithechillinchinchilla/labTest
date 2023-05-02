@@ -29,6 +29,17 @@ app.get("/customers", async (req, res) => {
   }
 });
 
+// Get an individual customer by ID.
+app.get("/customers/:id", async (req, res) => {
+  console.log("Specific customer request made: ", req.params.id);
+
+  try {
+    const results = await pool.query(`SELECT * FROM customers WHERE id = $1`, [
+      req.params.id,
+    ]);
+  } catch (error) {}
+});
+
 // ADD a new customer to the DB
 app.post("/customers", async (req, res) => {
   console.log("Post request made to customers db.");
@@ -40,6 +51,10 @@ app.post("/customers", async (req, res) => {
       [first_name, last_name, email]
     );
     res.json(newCustomer);
+    //For try block, could/ should return status instead of just the new data
+    // res
+    //   .status(201)
+    //   .json({ status: "succes", data: { customer: newCustomer.rows[0] } });
   } catch (err) {
     console.error(err.message);
     res.status(500).json("Server error with customers post.");
@@ -64,17 +79,22 @@ app.delete("/customers/:id", async (req, res) => {
 
 // // UPDATE or EDIT customer based on id. Used with Edit button.
 // // This function has not been completed or tested 3/14/23
-// app.put("/customers/:id", async (req, res) => {
-//   console.log("Edit customer request made.");
-//   try {
-//     const { id } = req.params;
-//     //NEED TO PARSE REQ.BODY into array in order for SQL statement to work
-//     console.log("req.params looks like: " + req.params);
-//     console.log("id  looks like this: " + id);
-//     const editCustomer = await pool.query(
-//       "UPDATE customers SET first_name = $1 last_name = $2 email = $3 WHERE id = $4"
-//     );
-//   } catch (error) {
-//     console.error(error.message);
-//   }
-// });
+app.put("/customers/:id", async (req, res) => {
+  console.log("Edit customer request made.");
+  try {
+    const { id } = req.params;
+    const { first_name, last_name, email } = req.body;
+    const editCustomer = await pool.query(
+      "UPDATE customers SET first_name = $1, last_name = $2, email = $3 WHERE id = $4 RETURNING *",
+      [first_name, last_name, email, id]
+    );
+    res.status(200).json({
+      status: "Success",
+      data: {
+        customer: editCustomer.rows[0],
+      },
+    });
+  } catch (error) {
+    console.error(error.message);
+  }
+});

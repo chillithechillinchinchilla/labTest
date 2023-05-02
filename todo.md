@@ -3,6 +3,7 @@ Notes, ToDo, Process order.
 ToDo:
 -Create page to Add new customers.
 -Create page to Edit / update existing customers.
+-Verify pool is using correct env port
 
 Steps:
 -Create edit button
