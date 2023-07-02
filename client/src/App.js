@@ -8,7 +8,7 @@ import Login from "./pages/Login";
 import Root from "./pages/Root";
 import Single from "./pages/Single";
 import Write from "./pages/Write";
-//import MyNavbar from "./components/MyNavbar";
+import { CustomersContextProvider } from "./context/CustomersContext";
 
 import {
   createBrowserRouter,
@@ -60,11 +60,13 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <div className="app">
-      <div className="container">
-        <RouterProvider router={router} />
+    <CustomersContextProvider>
+      <div className="app">
+        <div className="container">
+          <RouterProvider router={router} />
+        </div>
       </div>
-    </div>
+    </CustomersContextProvider>
   );
 }
 

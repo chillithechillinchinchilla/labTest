@@ -1,5 +1,7 @@
 Notes, ToDo, Process order.
 
+Updates made with axios and Context functions from PERN Stack course from freecodecamp.
+
 ToDo:
 -Create page to Add new customers.
 -Create page to Edit / update existing customers.

@@ -1,7 +1,9 @@
 # labTest
 
-spin up server with: node server.js
-should receive 'Lab Server has started on port'
+Server Notes:
+-Spin up server with: node server.js
+-Should receive 'Lab Server has started on port'
 
-navigate to client folder and eneter: npm start
-should run and open in browser
+Front End Notes:
+-Navigate to client folder and eneter: npm start
+-It should run and open in browser automatically
