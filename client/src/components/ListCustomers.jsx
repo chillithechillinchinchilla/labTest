@@ -7,6 +7,7 @@ import { CustomersContext } from "../context/CustomersContext";
 // //customers &&
 // customers.map((customer)
 
+// List Customers with AXIOS
 const ListCustomers = (props) => {
     const { customers, setCustomers } = useContext(CustomersContext);
     useEffect(() => {
@@ -21,8 +22,16 @@ const ListCustomers = (props) => {
         fetchData();
     }, []);
 
-    //     const deleteCustomer = (id) => {
-    //   fetch(`http://localhost:5000/api/v1/customers/${id}`, {
+    const deleteCustomer = (id) => {
+        console.log("delete request made with id " + id);
+        try {
+            CustomerFinder.delete("/" + id);
+            //todo: add set usestate to update here
+            setCustomers(customers.filter((customer) => customer.id !== id));
+        } catch (error) {}
+    };
+
+    // fetch(`http://localhost:5000/api/v1/customers/${id}`, {
     //     method: "DELETE",
     //   }).then((response) => {
     //     setCustomers(customers.filter((customer) => customer.id !== id));
@@ -41,18 +50,6 @@ const ListCustomers = (props) => {
 
     //     }
     //   },[])
-
-    // From before i restarted the video
-    // useEffect(() => {
-    //   const fetchData = async () => {
-    //     try {
-    //       const response = await CustomerFinder.get("/"); // Whatever is in quotes, is added to end of baseURL in CustomerFinder.
-    //       console.log(response);
-    //       //setCustomers(response.data.data.customers);
-    //     } catch (error) {}
-    //   };
-    //   fetchData();
-    // }, []);
 
     return (
         <Fragment>
@@ -85,7 +82,9 @@ const ListCustomers = (props) => {
                                 <td>
                                     <button
                                         className="btn btn-danger"
-                                        //onClick={() => deleteCustomer(customer.id)}
+                                        onClick={() =>
+                                            deleteCustomer(customer.id)
+                                        }
                                     >
                                         Delete
                                     </button>

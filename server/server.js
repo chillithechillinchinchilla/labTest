@@ -35,7 +35,23 @@ app.get("/api/v1/customers", async (req, res) => {
     }
 });
 
-// Server functionality to get all customers in customers table. Original using Fetch
+// DELETE a customer based on id. AXIOS
+app.delete("/api/v1/customers/:id", async (req, res) => {
+    console.log("Delete customer request made.");
+    try {
+        const { id } = req.params;
+        console.log("req.params looks like: " + req.params);
+        console.log("id  looks like this: " + id);
+        const deleteCustomer = await pool.query(
+            "DELETE FROM customers WHERE id = $1",
+            [id]
+        );
+    } catch (error) {
+        console.error(error.message);
+    }
+});
+
+// Get customers table. Original using Fetch
 // app.get("/api/v1/customers", async (req, res) => {
 //   console.log(`Get Request made `);
 //   try {
@@ -79,21 +95,21 @@ app.post("/api/v1/customers", async (req, res) => {
     }
 });
 
-// DELETE a customer based on id. Used with delete button.
-app.delete("/api/v1/customers:id", async (req, res) => {
-    console.log("Delete customer request made.");
-    try {
-        const { id } = req.params;
-        console.log("req.params looks like: " + req.params);
-        console.log("id  looks like this: " + id);
-        const deleteCustomer = await pool.query(
-            "DELETE FROM customers WHERE id = $1",
-            [id]
-        );
-    } catch (error) {
-        console.error(error.message);
-    }
-});
+// // DELETE a customer based on id. Used with delete button.
+// app.delete("/api/v1/customers:id", async (req, res) => {
+//     console.log("Delete customer request made.");
+//     try {
+//         const { id } = req.params;
+//         console.log("req.params looks like: " + req.params);
+//         console.log("id  looks like this: " + id);
+//         const deleteCustomer = await pool.query(
+//             "DELETE FROM customers WHERE id = $1",
+//             [id]
+//         );
+//     } catch (error) {
+//         console.error(error.message);
+//     }
+// });
 
 // // UPDATE or EDIT customer based on id. Used with Edit button.
 // // This function has not been completed or tested 3/14/23
