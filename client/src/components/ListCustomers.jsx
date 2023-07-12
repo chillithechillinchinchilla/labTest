@@ -8,86 +8,94 @@ import { CustomersContext } from "../context/CustomersContext";
 // customers.map((customer)
 
 const ListCustomers = (props) => {
-  const { customers, setCustomers } = useContext(CustomersContext);
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await CustomerFinder.get("/");
-        setCustomers(response.data.data.customers);
-        console.log(response);
-      } catch (err) {}
-    };
+    const { customers, setCustomers } = useContext(CustomersContext);
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await CustomerFinder.get("/");
+                setCustomers(response.data.data.customers); // update useState
+                console.log(response);
+            } catch (err) {}
+        };
 
-    fetchData();
-  }, []);
+        fetchData();
+    }, []);
 
-  // function ListCustomers(props) {
-  //   //const [customers, setCustomers] = useState([]);
-  //   const { customers, setCustomers } = useContext(CustomersContext);
+    //     const deleteCustomer = (id) => {
+    //   fetch(`http://localhost:5000/api/v1/customers/${id}`, {
+    //     method: "DELETE",
+    //   }).then((response) => {
+    //     setCustomers(customers.filter((customer) => customer.id !== id));
+    //   });
+    // };
 
-  //   useEffect(async() => {
-  //     try {
-  //       const response = await CustomerFinder.get("/")
-  //       console.log(response)
-  //     } catch (error) {
+    // function ListCustomers(props) {
+    //   //const [customers, setCustomers] = useState([]);
+    //   const { customers, setCustomers } = useContext(CustomersContext);
 
-  //     }
-  //   },[])
+    //   useEffect(async() => {
+    //     try {
+    //       const response = await CustomerFinder.get("/")
+    //       console.log(response)
+    //     } catch (error) {
 
-  // From before i restarted the video
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await CustomerFinder.get("/"); // Whatever is in quotes, is added to end of baseURL in CustomerFinder.
-  //       console.log(response);
-  //       //setCustomers(response.data.data.customers);
-  //     } catch (error) {}
-  //   };
-  //   fetchData();
-  // }, []);
+    //     }
+    //   },[])
 
-  return (
-    <Fragment>
-      {" "}
-      <table className="table mt-5 text-center">
-        <thead>
-          <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email</th>
-            <th>Edit</th>
-            <th>Delete</th>
-          </tr>
-        </thead>
-        <tbody>
-          {customers &&
-            customers.map((customer) => (
-              <tr key={customer.id}>
-                <td>{customer.first_name}</td>
-                <td>{customer.last_name}</td>
-                <td>{customer.email}</td>
-                <td>
-                  <button
-                    className="btn btn-warning"
-                    //onClick={() => editCustomer(customer.id)}
-                  >
-                    Edit
-                  </button>
-                </td>
-                <td>
-                  <button
-                    className="btn btn-danger"
-                    //onClick={() => deleteCustomer(customer.id)}
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            ))}
-        </tbody>
-      </table>
-    </Fragment>
-  );
+    // From before i restarted the video
+    // useEffect(() => {
+    //   const fetchData = async () => {
+    //     try {
+    //       const response = await CustomerFinder.get("/"); // Whatever is in quotes, is added to end of baseURL in CustomerFinder.
+    //       console.log(response);
+    //       //setCustomers(response.data.data.customers);
+    //     } catch (error) {}
+    //   };
+    //   fetchData();
+    // }, []);
+
+    return (
+        <Fragment>
+            {" "}
+            <table className="table mt-5 text-center">
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {customers &&
+                        customers.map((customer) => (
+                            <tr key={customer.id}>
+                                <td>{customer.first_name}</td>
+                                <td>{customer.last_name}</td>
+                                <td>{customer.email}</td>
+                                <td>
+                                    <button
+                                        className="btn btn-warning"
+                                        //onClick={() => editCustomer(customer.id)}
+                                    >
+                                        Edit
+                                    </button>
+                                </td>
+                                <td>
+                                    <button
+                                        className="btn btn-danger"
+                                        //onClick={() => deleteCustomer(customer.id)}
+                                    >
+                                        Delete
+                                    </button>
+                                </td>
+                            </tr>
+                        ))}
+                </tbody>
+            </table>
+        </Fragment>
+    );
 };
 
 export default ListCustomers;
