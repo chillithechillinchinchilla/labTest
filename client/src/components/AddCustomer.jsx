@@ -8,27 +8,6 @@ function AddCustomer() {
         email: "",
     });
 
-    // Handle Submit Form using the first setup of FETCH
-    // const handleSubmit = async (event) => {
-    //   console.log("Post request made.");
-    //   event.preventDefault(); // Override page refresh on submit
-    //   const url = "http://localhost:5000/customers";
-    //   try {
-    //     const response = await fetch(url, {
-    //       method: "POST",
-    //       headers: { "Content-Type": "application/json" },
-    //       body: JSON.stringify(customer),
-    //     });
-    //     const data = await response.json();
-    //     console.log("made it this far in adding");
-    //     // Reset form if successful
-    //     // setCustomer({ first_name: "", last_name: "", email: "" });
-    //     window.location = "/";
-    //   } catch (error) {
-    //     console.error(error);
-    //   }
-    // };
-
     // Handle Submit Form using the setup of AXIOS.
     // import the user made CustomerFinder, which shortens the URL used.
     const handleSubmit = async (e) => {
@@ -57,7 +36,6 @@ function AddCustomer() {
         setCustomer((prevState) => ({ ...prevState, [name]: value }));
     };
 
-    // Set return for form
     return (
         <div>
             <h1>Add a new customer.</h1>
@@ -99,3 +77,24 @@ function AddCustomer() {
 }
 
 export default AddCustomer;
+
+// Handle Submit Form using the first setup of FETCH
+// const handleSubmit = async (event) => {
+//   console.log("Post request made.");
+//   event.preventDefault(); // Override page refresh on submit
+//   const url = "http://localhost:5000/customers";
+//   try {
+//     const response = await fetch(url, {
+//       method: "POST",
+//       headers: { "Content-Type": "application/json" },
+//       body: JSON.stringify(customer),
+//     });
+//     const data = await response.json();
+//     console.log("made it this far in adding");
+//     // Reset form if successful
+//     // setCustomer({ first_name: "", last_name: "", email: "" });
+//     window.location = "/";
+//   } catch (error) {
+//     console.error(error);
+//   }
+// };

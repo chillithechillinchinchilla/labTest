@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useEffect, useContext } from "react";
 import CustomerFinder from "../apis/CustomerFinder";
 import { CustomersContext } from "../context/CustomersContext";
-
+import { useNavigate } from "react-router-dom";
 // in return, the customers && sets that the section only renders when the customers
 // object actually exists. prevents empty fill if data doesnt fetch fast enough?
 // //customers &&
@@ -10,11 +10,13 @@ import { CustomersContext } from "../context/CustomersContext";
 // List Customers with AXIOS
 const ListCustomers = (props) => {
     const { customers, setCustomers } = useContext(CustomersContext);
+    let navigate = useNavigate();
+
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await CustomerFinder.get("/");
-                setCustomers(response.data.data.customers); // update useState
+                setCustomers(response.data.data.customers); // update useState 3:35
                 console.log(response);
             } catch (err) {}
         };
@@ -22,34 +24,20 @@ const ListCustomers = (props) => {
         fetchData();
     }, []);
 
+    // Delete customer with AXIOS
     const deleteCustomer = (id) => {
         console.log("delete request made with id " + id);
         try {
             CustomerFinder.delete("/" + id);
-            //todo: add set usestate to update here
             setCustomers(customers.filter((customer) => customer.id !== id));
         } catch (error) {}
     };
 
-    // fetch(`http://localhost:5000/api/v1/customers/${id}`, {
-    //     method: "DELETE",
-    //   }).then((response) => {
-    //     setCustomers(customers.filter((customer) => customer.id !== id));
-    //   });
-    // };
-
-    // function ListCustomers(props) {
-    //   //const [customers, setCustomers] = useState([]);
-    //   const { customers, setCustomers } = useContext(CustomersContext);
-
-    //   useEffect(async() => {
-    //     try {
-    //       const response = await CustomerFinder.get("/")
-    //       console.log(response)
-    //     } catch (error) {
-
-    //     }
-    //   },[])
+    // TODO: Edit customer with AXIOS
+    const handleUpdate = (id) => {
+        // Need to tell react router to navigate to /customers/id/update URL
+        navigate(`/customers/${id}/update`);
+    };
 
     return (
         <Fragment>
@@ -74,7 +62,9 @@ const ListCustomers = (props) => {
                                 <td>
                                     <button
                                         className="btn btn-warning"
-                                        //onClick={() => editCustomer(customer.id)}
+                                        onClick={() =>
+                                            handleUpdate(customer.id)
+                                        }
                                     >
                                         Edit
                                     </button>
@@ -99,6 +89,7 @@ const ListCustomers = (props) => {
 
 export default ListCustomers;
 
+// Below is to handle list customers with Fetch instead of AXIOS.
 // import React, { Fragment, useState, useEffect } from "react";
 
 // function ListCustomers() {

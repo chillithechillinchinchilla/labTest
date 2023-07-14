@@ -1,5 +1,9 @@
 Notes, ToDo, Process order.
 
+7/12/23, delete and add work are finished. Need to add edit functionality with AXIOS and list customers.
+
+Need to look into updating the page when a new customer is added
+
 Updates made with axios and Context functions from PERN Stack course from freecodecamp.
 
 ToDo:
