@@ -25,7 +25,8 @@ const ListCustomers = (props) => {
     }, []);
 
     // Delete customer with AXIOS
-    const deleteCustomer = (id) => {
+    const deleteCustomer = (e, id) => {
+        e.stopPropagation();
         console.log("delete request made with id " + id);
         try {
             CustomerFinder.delete("/" + id);
@@ -33,10 +34,15 @@ const ListCustomers = (props) => {
         } catch (error) {}
     };
 
-    // TODO: Edit customer with AXIOS
-    const handleUpdate = (id) => {
-        // Need to tell react router to navigate to /customers/id/update URL
+    // When user clicks 'Update' button, navigate to the customer update page
+    const handleUpdate = (e, id) => {
+        e.stopPropagation();
         navigate(`/customers/${id}/update`);
+    };
+
+    // When user clicks on a given row, navigate to that customer's detail page.
+    const handleCustomerSelect = (id) => {
+        navigate(`/customers/${id}/details`);
     };
 
     return (
@@ -55,15 +61,20 @@ const ListCustomers = (props) => {
                 <tbody>
                     {customers &&
                         customers.map((customer) => (
-                            <tr key={customer.id}>
+                            <tr
+                                onClick={() =>
+                                    handleCustomerSelect(customer.id)
+                                }
+                                key={customer.id}
+                            >
                                 <td>{customer.first_name}</td>
                                 <td>{customer.last_name}</td>
                                 <td>{customer.email}</td>
                                 <td>
                                     <button
                                         className="btn btn-warning"
-                                        onClick={() =>
-                                            handleUpdate(customer.id)
+                                        onClick={(e) =>
+                                            handleUpdate(e, customer.id)
                                         }
                                     >
                                         Edit
@@ -72,8 +83,8 @@ const ListCustomers = (props) => {
                                 <td>
                                     <button
                                         className="btn btn-danger"
-                                        onClick={() =>
-                                            deleteCustomer(customer.id)
+                                        onClick={(e) =>
+                                            deleteCustomer(e, customer.id)
                                         }
                                     >
                                         Delete

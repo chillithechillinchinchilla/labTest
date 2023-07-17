@@ -8,7 +8,9 @@ import Login from "./pages/Login";
 import Root from "./pages/Root";
 import Single from "./pages/Single";
 import Write from "./pages/Write";
+import CustomerDetails from "./pages/CustomerDetails";
 import UpdatePage from "./pages/UpdatePage";
+
 import { CustomersContextProvider } from "./context/CustomersContext";
 
 import {
@@ -54,6 +56,10 @@ const router = createBrowserRouter([
             {
                 path: "/customers/:id/",
                 element: <Single />,
+            },
+            {
+                path: "/customers/:id/details",
+                element: <CustomerDetails />,
             },
             {
                 path: "/test",
