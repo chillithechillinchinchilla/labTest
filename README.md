@@ -1,11 +1,12 @@
 # labTest
 
 Database setup:
--Install Postgresql
--Add psql to environmental variables /bin
--In cmd, psql -U postgres
--Enter pw
--While in psql type: \i schema.sql to run import file.
+
+-   Install Postgresql
+-   Add psql to environmental variables /bin
+-   In cmd, psql -U postgres
+-   Enter pw
+-   While in psql type: \i schema.sql to run import file.
 
 Server Notes:
 
