@@ -17,7 +17,7 @@ const ListCustomers = (props) => {
             try {
                 const response = await CustomerFinder.get("/");
                 setCustomers(response.data.data.customers); // update useState 3:35
-                console.log(response);
+                // console.log(response);
             } catch (err) {}
         };
 
