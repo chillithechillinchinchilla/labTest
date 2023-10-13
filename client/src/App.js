@@ -13,6 +13,7 @@ import UpdatePage from "./pages/UpdatePage";
 import ProductsPage from "./pages/ProductsPage";
 
 import { CustomersContextProvider } from "./context/CustomersContext";
+import { ProductsContextProvider } from "./context/ProductsContext";
 
 import {
     createBrowserRouter,
@@ -20,6 +21,7 @@ import {
     Outlet,
     Route,
 } from "react-router-dom";
+
 // import Root, { loader as rootLoader, action as rootAction } from "./pages/Root";
 
 const Layout = () => {
@@ -81,11 +83,13 @@ const router = createBrowserRouter([
 function App() {
     return (
         <CustomersContextProvider>
-            <div className="app">
-                <div className="container">
-                    <RouterProvider router={router} />
+            <ProductsContextProvider>
+                <div className="app">
+                    <div className="container">
+                        <RouterProvider router={router} />
+                    </div>
                 </div>
-            </div>
+            </ProductsContextProvider>
         </CustomersContextProvider>
     );
 }
