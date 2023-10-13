@@ -19,3 +19,4 @@ export const CustomersContextProvider = (props) => {
         </CustomersContext.Provider>
     );
 };
+//3:51 has diffreeent setup

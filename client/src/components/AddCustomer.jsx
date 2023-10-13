@@ -15,6 +15,7 @@ function AddCustomer() {
         e.preventDefault(); // Override page refresh on submit
         // order: what backend expects: what front end / useState is providing
         // if the names are the same, then you can shorten. But we are using an object.
+        // for ex below, could be {first_name, last_name, email} because frontend and backend names are same.
         try {
             const response = await CustomerFinder.post("/", {
                 first_name: customer.first_name,

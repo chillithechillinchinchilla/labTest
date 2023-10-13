@@ -10,6 +10,7 @@ import Single from "./pages/Single";
 import Write from "./pages/Write";
 import CustomerDetails from "./pages/CustomerDetails";
 import UpdatePage from "./pages/UpdatePage";
+import ProductsPage from "./pages/ProductsPage";
 
 import { CustomersContextProvider } from "./context/CustomersContext";
 
@@ -60,6 +61,10 @@ const router = createBrowserRouter([
             {
                 path: "/customers/:id/details",
                 element: <CustomerDetails />,
+            },
+            {
+                path: "/products",
+                element: <ProductsPage />,
             },
             {
                 path: "/test",

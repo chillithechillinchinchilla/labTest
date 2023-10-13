@@ -113,6 +113,38 @@ app.put("/api/v1/customers/:id", async (req, res) => {
     }
 });
 
+//**************** */
+//PRODUCTS FUNCTIONS
+//**************** */
+
+// GET ALL products with AXIOS
+app.get("/api/v1/products", async (req, res) => {
+    console.log("Request made to get all products");
+    try {
+        const results = await pool.query("SELECT * FROM product");
+        res.status(200).json({
+            status: "success",
+            results: results.rows.length,
+            data: {
+                products: results.rows,
+            },
+        });
+    } catch (error) {
+        console.error(error.message);
+    }
+});
+
+//
+//
+//
+////
+//
+//
+//
+//
+//
+//
+//
 // OLD Code / notes beyond this point ---------------------------------
 
 // Get customers table. Original using Fetch

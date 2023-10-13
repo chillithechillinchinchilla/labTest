@@ -35,6 +35,8 @@ const ListCustomers = (props) => {
     };
 
     // When user clicks 'Update' button, navigate to the customer update page
+    // e.stopPropagation prevents error where adding handleCustomerSelct on the ROW,
+    // prevents the update/delete buttons from working.
     const handleUpdate = (e, id) => {
         e.stopPropagation();
         navigate(`/customers/${id}/update`);

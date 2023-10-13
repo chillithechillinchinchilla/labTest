@@ -30,6 +30,7 @@ const CustomerDetails = () => {
         console.error(error);
     }
 
+    // && prevents error in case selectedCustomer has not been loaded yet.
     return (
         <div>
             <h1>Customer Details</h1>

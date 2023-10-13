@@ -40,8 +40,15 @@ CREATE TABLE IF NOT EXISTS reviews (
  rating INT NOT NULL check(rating >=1 and rating <=5)
 );
 
-
-
+--May need a System models table, then an individual item table that links to model, location, pricing, benchmarks, ect. 
+CREATE TABLE IF NOT EXISTS product (
+    id BIGSERIAL NOT NULL PRIMARY KEY,
+    product VARCHAR(50) NOT NULL,
+    model_number VARCHAR(50) NOT NULL,
+    product_type VARCHAR(50) NOT NULL,
+    processor VARCHAR(50),
+    memory VARCHAR(50)
+);
 
 
 
@@ -77,3 +84,10 @@ VALUES (2, 'Igor', 'Bob always leaves bad reviews on our systems', 1);
 
 INSERT INTO reviews (customer_id, name, review, rating) 
 VALUES (1, 'Amanda', 'John  loves our products', 5);
+
+
+INSERT into product(product, model_number, product_type, processor, memory)
+VALUES ('X1 Carbon', 'FUS00004OU', 'Laptop', 'intel core i7', '16GB'),
+    ('X1 Yoga', 'FUS0000FUS', 'Laptop', 'intel core i5', '16GB'),
+    ('Yoga 9i', 'FUS00002US', 'Laptop', 'intel core i7', '32GB'),
+    ('ideaPad Flex 5i', 'FUS00004OU', 'Laptop', 'intel core i7', '8GB');
