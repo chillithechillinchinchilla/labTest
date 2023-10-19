@@ -1,10 +1,11 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { ProductsContext } from "../context/ProductsContext";
 import ProductsFinder from "../apis/ProductsFinder";
 
 const ListProducts = () => {
-    const { products, setProducts } = useContext(ProductsContext);
+    // const { products, setProducts } = useContext(ProductsContext);
     //need to add navigate??
+    const [products, setProducts] = useState();
 
     useEffect(() => {
         const fetchData = async () => {
