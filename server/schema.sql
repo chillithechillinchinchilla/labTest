@@ -53,6 +53,12 @@ CREATE TABLE IF NOT EXISTS product (
 
 
 
+
+
+
+
+
+
 -- Seed the DB
 
 
